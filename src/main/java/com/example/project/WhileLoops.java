@@ -17,7 +17,7 @@ public class WhileLoops {
     //tests
     //run ./gradlew test when you are ready. 
    //// ============================================================
-
+    
 
    /**
     * Returns the number of even integers between 1 and n (inclusive).
@@ -30,8 +30,17 @@ public class WhileLoops {
     * countEvensUpTo(10) -> 5 // {2, 4, 6, 8, 10}
     */
    public static int countEvensUpTo(int n) {
-       // YOUR CODE HERE
-       return -1;
+       if (n < 1) return 0;
+       int count = 0;
+       int i = 2;
+       while (i <= n) {
+           count++;
+           i += 2;
+           if (i > n) {
+               break;
+           }
+       }
+       return count;
    }
 
 
@@ -47,8 +56,13 @@ public class WhileLoops {
     * digitSum(199) -> 19 // 1 + 9 + 9
     */
    public static int digitSum(int n) {
-       // YOUR CODE HERE
-       return -1;
+       int sum = 0;
+       while (n > 0) {
+    sum += n % 10;
+    n /= 10;
+}
+
+       return sum;
    }
 
 
@@ -71,10 +85,16 @@ public class WhileLoops {
     * countDownBy(4, 6) -> 4
     * // can't subtract without going negative
     */
-   public static int countDownBy(int start, int step) {
-       // YOUR CODE HERE
-       return -1;
-   }
+  public static int countDownBy(int start, int step) {
+    if (step <= 0) return start;
+
+    while (start - step >= 0) {
+        start -= step;
+    }
+    return start;
+}
+
+   
 
 
    /**
@@ -105,8 +125,13 @@ public class WhileLoops {
     * // 10 -> 20 -> 30 -> 40
     */
    public static int weeksToReachGoal(int startBalance, int weeklyDeposit, int goalBalance) {
-       // CODE HERE
-       return -1;
+       int weeks = 0;
+       while (startBalance < goalBalance) {
+           startBalance += weeklyDeposit;
+           weeks++;
+           
+       }
+       return weeks;
    }
 
 
@@ -140,8 +165,14 @@ public class WhileLoops {
     * // battery would never drain
     */
    public static int minutesUntilDead(int startPercent, int perMinuteUse) {
-       //YOUR CODE HERE
-       return -1;
+       if (startPercent <= 0 || perMinuteUse <= 0) return 0;
+       int minutes = 0;
+       while (startPercent > 0) {
+           startPercent -= perMinuteUse;
+           minutes++;
+            
+       }
+       return minutes;
    }
 }
 
